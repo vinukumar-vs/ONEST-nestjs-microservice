@@ -15,11 +15,14 @@ export class AppService {
     return 'Welcome to ONEST Provider aplication!';
   }
 
-  search(clientId: string, searchObj: any): any {
-    console.log(clientId, searchObj);
+  async search(clientId: string, searchObj: any): Promise<any> {
+    console.log('===',clientId, searchObj);
     // return `Body: ${searchObj.body} `;
-    this.aastrikaAdapter.emit('search-event', searchObj);
-    this.sunbirdAdapter.emit('search-event', searchObj);
+    const resp =  this.aastrikaAdapter.send('search', searchObj)
+    // console.log('resp',resp)
+    return resp;
+    this.aastrikaAdapter.emit('search-event', searchObj)
+    // this.sunbirdAdapter.emit('search-event', searchObj);
     return of('OK');
   }
 }

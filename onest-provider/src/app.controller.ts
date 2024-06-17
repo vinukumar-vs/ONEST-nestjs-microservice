@@ -12,7 +12,9 @@ export class AppController {
   }
 
   @Post('search/:clientId')
-  search(@Param('clientId') clientId: string, @Body() searchData: any) {
-    return this.appService.search(clientId, searchData);
+  async search(@Param('clientId') clientId: string, @Body() searchData: any) {
+    return await this.appService.search(clientId, searchData)
+   
+
   }
 }
