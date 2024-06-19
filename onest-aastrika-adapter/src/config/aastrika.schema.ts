@@ -134,9 +134,20 @@ const urlConfig: UrlConfig = {
         'Content-Type': 'application/json'
     },
     data: {
+        query: "",
+        language: ""
+    }
+};
+
+const selectUrlConfig: UrlConfig = {
+    url: 'https://aastrika-stage.tarento.com/apis/public/v8/courseRecommendation/publicSearch/getcourse',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    data: {
         query: 'asha',
         language: 'en'
     }
 };
 
-export { providerSchema, responsePath, itemSchema, urlConfig };
+export { providerSchema, responsePath, itemSchema, urlConfig,selectUrlConfig };

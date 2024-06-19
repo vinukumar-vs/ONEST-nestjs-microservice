@@ -15,4 +15,9 @@ export class AppController {
     console.log('Astrika message handler of ', searchReqData);
     return this.aastrikaService.search(searchReqData);
   }
+  @EventPattern('select')
+  async select(searchReqData: any): Promise<any> {
+    console.log('Astrika message handler of ', searchReqData);
+    return this.aastrikaService.select(searchReqData);
+  }
 }

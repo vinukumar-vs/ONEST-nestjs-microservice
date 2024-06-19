@@ -14,7 +14,10 @@ export class AppController {
   @Post('search/:clientId')
   async search(@Param('clientId') clientId: string, @Body() searchData: any) {
     return await this.appService.search(clientId, searchData)
-   
+  }
 
+  @Post('select/:clientId')
+  async select(@Param('clientId') clientId: string, @Body() searchData: any) {
+    return await this.appService.select(clientId, searchData)
   }
 }
