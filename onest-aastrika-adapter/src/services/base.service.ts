@@ -23,4 +23,12 @@ export class BaseService {
     this.logger.error(`Error in ${endpoint}: ${error.message}`);
     throw error;
   }
+
+  protected async sendResponseToBapUrl(url: string, data: any) {
+    try {
+      await axios.post(url, data);
+    } catch (error) {
+      throw new Error(`Error sending response to BAP URL: ${error.message}`);
+    }
+  }
 }
