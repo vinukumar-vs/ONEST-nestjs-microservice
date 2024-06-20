@@ -51,32 +51,21 @@ type ItemSchema = {
     'tags[]': { key: string }[];
 };
 
-type UrlConfig = {
-    url: string;
-    headers: {
-        'Content-Type': string;
-    };
-    data: {
-        query: string;
-        language: string;
-    };
-};
 
-// Define the schemas and configurations
 const providerSchema: ProviderSchema = {
     categories: [
         {
             descriptor: {
-                code: "LANGUAGE-COURSES",
-                name: "Language Courses"
+                code: "",
+                name: ""
             },
-            id: "LANGUAGE-COURSES"
+            id: ""
         },
         {
-            id: "SKILL-DEVELOPMENT-COURSES",
+            id: "",
             descriptor: {
-                code: "SKILL-DEVELOPMENT-COURSES",
-                name: "Skill development Courses"
+                code: "",
+                name: ""
             }
         },
     ],
@@ -108,46 +97,4 @@ const providerSchema: ProviderSchema = {
 
 const responsePath: string = 'result.content';
 
-const itemSchema: ItemSchema = {
-    identifier: 'id',
-    code: 'descriptor.id',
-    name: 'descriptor.name',
-    description: 'descriptor.short_desc',
-    createdBy: 'creator.id',
-    creator: 'creator.name',
-    appIcon: [
-        {
-            key: 'descriptor.images[]+.url+',
-        },
-    ],
-    posterImage: [
-        {
-            key: 'descriptor.images[]+.url',
-        },
-    ],
-    'tags[]': [{ key: 'tags.list[].value' }],
-};
-
-const urlConfig: UrlConfig = {
-    url: 'https://aastrika-stage.tarento.com/apis/public/v8/courseRecommendation/publicSearch/getcourse',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    data: {
-        query: "",
-        language: ""
-    }
-};
-
-const selectUrlConfig: UrlConfig = {
-    url: 'https://aastrika-stage.tarento.com/apis/public/v8/courseRecommendation/publicSearch/getcourse',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    data: {
-        query: 'asha',
-        language: 'en'
-    }
-};
-
-export { providerSchema, responsePath, itemSchema, urlConfig,selectUrlConfig };
+export { providerSchema, responsePath, ItemSchema };
